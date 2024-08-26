@@ -5,6 +5,8 @@ from sklearn.preprocessing import StandardScaler, MinMaxScaler
 import torch
 import torchvision
 import torchvision.transforms as transforms
+import ssl
+ssl._create_default_https_context = ssl._create_unverified_context
 
 
 # filename = "data.csv"
@@ -109,3 +111,12 @@ image_np = image.numpy().squeeze()
 plt.imshow(image_np, cmap="gray")
 plt.title(f'Label: {label}')
 plt.show()
+
+# from datasets import load_dataset
+
+# dataset = load_dataset("glue","mrpc")
+
+# first_example = dataset['train'][0]
+# print("Câu 1:", first_example['sentence1'])
+# print("Câu 2:", first_example['sentence2'])
+# print("Label (0: không tương đương, 1: tương đương):", first_example['label'])
